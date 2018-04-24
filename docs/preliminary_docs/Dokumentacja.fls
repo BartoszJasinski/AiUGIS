@@ -1,4 +1,4 @@
-PWD /home/samba/jasinskib/Desktop/III rok/gis/AiUGIS/docs/preliminary_docs
+PWD /home/samba/jasinskib/Desktop/III rok/gis/GIS/AiUGIS/docs/preliminary_docs
 INPUT /usr/share/texmf-dist/web2c/texmf.cnf
 INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
 INPUT Dokumentacja.tex

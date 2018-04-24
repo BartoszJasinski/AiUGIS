@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1524580628 "Dokumentacja.tex" "Dokumentacja.pdf" "Dokumentacja" 1524580628
+["pdflatex"] 1524582407 "Dokumentacja.tex" "Dokumentacja.pdf" "Dokumentacja" 1524582407
   "/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1510784331 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc" 1510784331 2840 216e6e45ad352e2456e1149f28885bee ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1510784337 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
@@ -95,14 +95,14 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1510784374 32585 d82bbcf7626b7842c87671687479e852 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1516635368 334286 7d54d57af850f32d2e4cd0d3222731c3 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1516635366 7736838 0c18b1c4a418a7d2f85c7e5dc80dab0c ""
-  "Dokumentacja.aux" 1524580628 2104 885440f08bd32b60f7f43dbdbb4c8b05 ""
-  "Dokumentacja.out" 1524580628 670 9ec50ea8b0f0d1124584e104cadd97bf ""
-  "Dokumentacja.tex" 1524580627 3304 8eb6d3fbf6c57e4ed10493df1d84b8e5 ""
-  "Dokumentacja.toc" 1524580628 968 e0f9e512737bb1f7f2f7812bbf0800aa ""
-  "logo.png" 1524580360 263158 a20c891d6bacfa9e446bdf4191f684d5 ""
+  "Dokumentacja.aux" 1524582407 2104 885440f08bd32b60f7f43dbdbb4c8b05 ""
+  "Dokumentacja.out" 1524582407 670 9ec50ea8b0f0d1124584e104cadd97bf ""
+  "Dokumentacja.tex" 1524582406 3304 8eb6d3fbf6c57e4ed10493df1d84b8e5 ""
+  "Dokumentacja.toc" 1524582407 968 e0f9e512737bb1f7f2f7812bbf0800aa ""
+  "logo.png" 1524581901 263158 a20c891d6bacfa9e446bdf4191f684d5 ""
   (generated)
   "Dokumentacja.out"
+  "Dokumentacja.aux"
   "Dokumentacja.pdf"
   "Dokumentacja.toc"
-  "Dokumentacja.aux"
   "Dokumentacja.log"
