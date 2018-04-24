@@ -2,21 +2,39 @@
 \usepackage{standalone}
 \usepackage{polski}
 \usepackage[utf8]{inputenc}
+\usepackage{blindtext}
+
 
 \begin{document}
+\begin{titlepage}
+   \vspace*{\stretch{1.0}}
+   \begin{center}
+ 	\Huge\textbf{Dokumentacja} 
+	\bigbreak
+      \Large\textbf{Analiza ilości terenów zielonych na terenie dzielnic Warszawy.}\\
+      \large\textit{Bartosz Jasiński, Marta Rutkowska} \\	
+	\bigbreak
+	\bigbreak
+	\Large\textbf{v 1.0} \\
+	\small{Warszawa 24.04.2018}
+	
+   \end{center}
+   \vspace*{\stretch{2.0}}
+\end{titlepage}
 
 	\tableofcontents
 
 	\section{Wstęp}
 	\subsection{Realizowany cel biznesowy}
-		Analiza stosunku przestrzeni zielonych do ilości mieszkańców na podstawie zdjęć satelitarnych oraz danych demograficznych Warszawy.
+		Analiza stosunku pola przestrzeni zielonych do ilości mieszkańców, procentu zazielenia i gęstości zaludnienia dzielnic Warszawy na podstawie zdjęć satelitarnych oraz danych administracyjnych i demograficznych Warszawy. 
 	\subsection{Użytkowanie aplikacji}
-		Aplikacja wyświetla mapę Warszawy podzieloną na jej dzielnice. Użytkownik ma możliwosć wybrania interesującej go dzielnicy. Zostanie mu zwrócona informacja o ilosci powierzchini terenów zielonych przypadających na głowę mieszkańca danej dzielnicy.
+		Aplikacja wyświetla mapę Warszawy podzieloną na dzielnice, z nałożoną na nią heatmapą wskazującą na obszary zielone. Użytkownik ma możliwosć wybrania z mapy interesującej go dzielnicy. Zostanie mu zwrócona informacja o gęstosci zaludnienia, ilosci powierzchini terenów zielonych przypadających w niej na mieszkańca oraz jaki procent obszaru danej dzielnicy jest terenem zielonym.
 	\subsection{Technologia}
 		Projekt wykonany w technologii: Python po stronie serwera najprawdopodobniej z użyciem frameworku tornado, JavaScrip oraz HTML po stronie przeglądarki
 
 	
-	\section{Źródła danych aplikacji}
+	\section{Dane aplikacji}
+	\subsection{Źródła danych}
 		Dane użyte w projekcie pochodzą z publicznie udostępnianych, darmowych źródeł wymienionych poniżej.
 	
 	\begin{itemize}
@@ -24,5 +42,12 @@
 	\item Dane na temat podziału miasta Warszawa na dzielnice pozyskane ze strony http://www.gugik.gov.pl, pełny link do danych: http://www.gugik.gov.pl/geodezja-i-kartografia/pzgik/dane-bez-oplat/dane-z-panstwowego-rejestru-granic-i-powierzchni-jednostek-podzialow-terytorialnych-kraju-prg
 	\item Dane na temat ludności dzielnic Warszawy, stan na 2017 rok z portalu http://stat.gov.pl, pełny link do danych: http://stat.gov.pl/obszary-tematyczne/ludnosc/ludnosc/powierzchnia-i-ludnosc-w-przekroju-terytorialnym-w-2017-r-,7,14.html
 	\end{itemize}
+
+	\subsection{Baza danych aplikacji}
+	Dane na temat ludnosci poszczególnych dzielnic Warszawy przechowywane są w pliku csv. Podział miasta na dzielnice wczytywany jest z pliku Shapefile.
+
+	\section{Utrzymanie aplikacji}
+		Utrzymanie aplikacji będzie opierało się głównie o odswieżanie danych na temat ludnosći dzielnic Warszawy oraz ewentualnym odswieżeniu danych o granicach administracyjnych dzielnic w razie ich zmiany, lub utworzenia nowych jednostek.
+
 
 \end{document}
