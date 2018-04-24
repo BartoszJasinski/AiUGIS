@@ -1,4 +1,8 @@
-\documentclass[11pt]{article}
+\documentclass[a4paper,12p]{article}
+\usepackage{standalone}
+\usepackage{polski}
+\usepackage[utf8]{inputenc}
+\usepackage{blindtext}
 \usepackage{graphicx}
 \usepackage[T1]{fontenc}
 \usepackage[polish]{babel}
@@ -9,7 +13,7 @@
 \usepackage{multirow}
 \usepackage{array}
 \usepackage{booktabs}
-\selectlanguage{polish}
+%\selectlanguage{polish}
 \usepackage{titlesec}
 \usepackage{amsmath}
 \usepackage{esint}
@@ -20,12 +24,17 @@
 \usepackage{longtable}
 \usepackage{hyperref}
 
+
 \setlength\parindent{24pt}
 
-\begin{document}
+			
 
-	
-\begin{titlepage}				
+\vfill		
+
+
+\begin{document}
+\begin{titlepage}
+
 \centering
 
 {\Large{Wydział Matematyki i Nauk Informacyjnych Politechniki Warszawskiej}}
@@ -34,13 +43,10 @@
 {\includegraphics[scale=0.25]{logo}}
 \vspace{3cm}
 
-\Huge\textbf{Dokumentacja} 
-\bigbreak
-
-{\Huge Analiza ilości terenów zielonych na terenie dzielnic Warszawy}
+{\Huge Podstawy Przetwarzania Języka Naturalnego - projekt indywidualny}
 \vspace{1cm}
 
-{\Large Bartosz Jasiński, Marta Rutkowska}
+{\Large Bartosz Jasiński}
 \vspace{1cm}
 
 \Large{v1.0}
@@ -48,15 +54,25 @@
 
 {\itshape {\Large \today}}
 
-\vfill		
 
+
+%
+%    \vspace*{\stretch{1.0}}
+%    \begin{center}
+%  	\Huge\textbf{Dokumentacja} 
+% 	\bigbreak
+%       \Large\textbf{Analiza ilości terenów zielonych na terenie dzielnic Warszawy.}\\
+%       \large\textit{Bartosz Jasiński, Marta Rutkowska} \\	
+% 	\bigbreak
+% 	\bigbreak
+% 	\Large\textbf{v 1.0} \\
+% 	\small{Warszawa 24.04.2018}
+% 	
+%    \end{center}
+%    \vspace*{\stretch{2.0}}
 \end{titlepage}
 
-
-\tableofcontents
-
-
-\newpage
+	\tableofcontents
 
 	\section{Wstęp}
 	\subsection{Realizowany cel biznesowy}
