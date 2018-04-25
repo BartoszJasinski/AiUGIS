@@ -7,7 +7,4 @@
 \contentsline {section}{\numberline {2}Dane aplikacji}{2}{section.2}
 \contentsline {subsection}{\numberline {2.1}\IeC {\'Z}r\IeC {\'o}d\IeC {\l }a danych}{2}{subsection.2.1}
 \contentsline {subsection}{\numberline {2.2}Baza danych aplikacji}{3}{subsection.2.2}
-\contentsline {section}{\numberline {3}Praca z aplikacj\IeC {\k a}}{3}{section.3}
-\contentsline {subsection}{\numberline {3.1}Uruchomienie}{3}{subsection.3.1}
-\contentsline {subsection}{\numberline {3.2}Obs\IeC {\l }uga aplikacji}{3}{subsection.3.2}
-\contentsline {section}{\numberline {4}Utrzymanie aplikacji}{3}{section.4}
+\contentsline {section}{\numberline {3}Utrzymanie aplikacji}{3}{section.3}

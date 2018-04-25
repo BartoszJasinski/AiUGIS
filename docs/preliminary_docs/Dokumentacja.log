@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2018.1.22)  24 APR 2018 17:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2018.1.22)  25 APR 2018 13:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -813,7 +813,7 @@ LaTeX Info: Redefining \nameref on input line 25.
 \@outlinefile=\write3
 \openout3 = `Dokumentacja.out'.
 
-<logo.png, id=48, 376.40625pt x 367.3725pt>
+<logo.png, id=36, 376.40625pt x 367.3725pt>
 File: logo.png Graphic file (type png)
 <use logo.png>
 Package pdftex.def Info: logo.png  used on input line 34. on input line 34.
@@ -863,49 +863,48 @@ been already used, duplicate ignored
                    \relax 
 l.59 \newpage
               [1]
-LaTeX Font Info:    Try loading font information for OMS+lmr on input line 75.
+LaTeX Font Info:    Try loading font information for OMS+lmr on input line 68.
  (/usr/share/texmf-dist/tex/latex/lm/omslmr.fd
 File: omslmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `OMS/lmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 75.
-
-Overfull \hbox (96.91826pt too wide) in paragraph at lines 76--77
+(Font)              Font shape `OMS/lmsy/m/n' tried instead on input line 68.
+ [2]
+Overfull \hbox (96.91826pt too wide) in paragraph at lines 86--87
 \T1/lmr/m/n/10.95 strony http://www.gugik.gov.pl, peªny link do da-nych: http:/
 /www.gugik.gov.pl/geodezja-
  []
 
 
-Overfull \hbox (11.35684pt too wide) in paragraph at lines 76--77
+Overfull \hbox (11.35684pt too wide) in paragraph at lines 86--87
 \T1/lmr/m/n/10.95 i-kartografia/pzgik/dane-bez-oplat/dane-z-panstwowego-rejestr
 u-granic-
  []
 
 
-Overfull \hbox (51.2631pt too wide) in paragraph at lines 77--78
+Overfull \hbox (51.2631pt too wide) in paragraph at lines 87--88
 \T1/lmr/m/n/10.95 tematyczne/ludnosc/ludnosc/powierzchnia-i-ludnosc-w-przekroju
 -terytorialnym-
  []
 
-[2]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 92.
- [3]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 92.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 97.
+[3]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 97.
  (./Dokumentacja.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 92.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 92.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 97.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 97.
 Package rerunfilecheck Info: File `Dokumentacja.out' has not changed.
-(rerunfilecheck)             Checksum: 9EC50EA8B0F0D1124584E104CADD97BF;670.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 92.
+(rerunfilecheck)             Checksum: A3F186D22C356B91FAD73710DA319E7A;486.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 97.
  ) 
 Here is how much of TeX's memory you used:
- 8074 strings out of 492985
- 110688 string characters out of 6138638
+ 8068 strings out of 492985
+ 110608 string characters out of 6138638
  212925 words of memory out of 5000000
- 11475 multiletter control sequences out of 15000+600000
+ 11472 multiletter control sequences out of 15000+600000
  44185 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,5n,35p,427b,408s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,5n,35p,503b,408s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share/texmf-dis
 t/fonts/enc/dvips/lm/lm-ec.enc}</usr/share/texmf-dist/fonts/type1/public/lm/lmb
 x10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/tex
@@ -913,10 +912,10 @@ mf-dist/fonts/type1/public/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/publ
 ic/lm/lmr12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/sh
 are/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf-dist/fonts/ty
 pe1/public/lm/lmsy10.pfb>
-Output written on Dokumentacja.pdf (4 pages, 367122 bytes).
+Output written on Dokumentacja.pdf (4 pages, 367603 bytes).
 PDF statistics:
- 116 PDF objects out of 1000 (max. 8388607)
- 100 compressed objects within 1 object stream
- 15 named destinations out of 1000 (max. 500000)
- 94 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 100 PDF objects out of 1000 (max. 8388607)
+ 84 compressed objects within 1 object stream
+ 12 named destinations out of 1000 (max. 500000)
+ 70 words of extra memory for PDF output out of 10000 (max. 10000000)
 
