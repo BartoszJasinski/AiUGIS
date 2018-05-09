@@ -8,14 +8,14 @@ from http.server import BaseHTTPRequestHandler, http
 
 
 # Handler = http.server.SimpleHTTPRequestHandler
-PORT = 8889
+PORT = 8888
 DATA_LOCATION = "../../data"
 
 
 class HttpRequestHandler(BaseHTTPRequestHandler):
 
     def do_GET(self):
-        data = open("Warsaw_districts_population.csv", "rb")
+        # data = open("Warsaw_districts_population.csv", "rb")
         # self.send_response(200)
         # self.end_headers()
         # self.wfile.write(data.read())
@@ -28,7 +28,7 @@ class HttpRequestHandler(BaseHTTPRequestHandler):
 
 with socketserver.TCPServer(('', PORT), HttpRequestHandler) as httpd:
     print("serving at port", PORT)
-    os.chdir(DATA_LOCATION)
+    # os.chdir(DATA_LOCATION)
     httpd.serve_forever()
 # httpd = HTTPServer(('localhost', PORT), SimpleHTTPRequestHandler)
 # httpd.serve_forever()

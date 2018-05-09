@@ -12,26 +12,14 @@
 
 </head>
 <body>
-<div id="map" class="map"></div>
+<!--<div id="map" class="map"></div>-->
 <script>
 
 
-    var polyCoords = [
-    [7498784.480000,5791314.780000], [7498745.290000,5791478.280000],
-    [7498784.480000,5791314.780000]
-    ];
+    var polyCoords = [];
 
-    <!--var p = new Proj4js.Point(-76.0,45.0);   //any object will do as long as it has 'x' and 'y' properties-->
-    <!--Proj4js.transform(source, dest, p);-->
-
-
-    <!--for (var i in coords) {-->
-      <!--var c = coords[i].split(',');-->
-      <!--polyCoords.push([c[0],c[1]]);-->
-        <!--}-->
 
     var polygon = new ol.geom.Polygon([polyCoords]);
-    <!--polygon.applyTransform(ol.proj.getTransform('EPSG:4326', 'EPSG:2178'))-->
 
     var point = new ol.geom.Point([2335727.634217173,6846435.393422468 ]);
 
