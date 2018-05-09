@@ -9,42 +9,59 @@
     <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
     <script src="https://openlayers.org/en/v4.6.5/build/ol.js"></script>
+
 </head>
 <body>
 <div id="map" class="map"></div>
 <script>
 
+    <!--var source = new Proj4js.Proj(‘EPSG:4326’);    //source coordinates will be in Longitude/Latitude-->
+    <!--var dest = new Proj4js.Proj(‘EPSG:2178’);-->
 
- var my_style = new ol.style.Style({
-        fill: new ol.style.Fill({
-          color: 'rgba(255,0,255,0.3)'
-        }),
-        stroke: new ol.style.Stroke({
-          color: '#319FD3',
-          width: 1000
+    var polyCoords = [
+    [7498784.480000,5791314.780000], [7498745.290000,5791478.280000],
+    [7498784.480000,5791314.780000]
+    ];
+
+    <!--var p = new Proj4js.Point(-76.0,45.0);   //any object will do as long as it has 'x' and 'y' properties-->
+    <!--Proj4js.transform(source, dest, p);-->
+
+
+    <!--for (var i in coords) {-->
+      <!--var c = coords[i].split(',');-->
+      <!--polyCoords.push([c[0],c[1]]);-->
+        <!--}-->
+
+    var polygon = new ol.geom.Polygon([polyCoords]);
+    <!--polygon.applyTransform(ol.proj.getTransform('EPSG:4326', 'EPSG:2178'))-->
+
+    var point = new ol.geom.Point([2335727.634217173,6846435.393422468 ]);
+
+
+    var feature = new ol.Feature({
+        geometry: point
+    });
+
+    var layer = new ol.layer.Vector({
+        source: new ol.source.Vector({
+            features: [feature]
         })
-      });
+    });
 
 
     var layers = [
         new ol.layer.Tile({
             source: new ol.source.OSM()
         }),
-       new ol.layer.Tile({
-          source: new ol.source.TileWMS({
-            url: 'http://wms.um.warszawa.pl/serwis?SERVICE=WMS&VERSION=1.0.0&REQUEST=GetFeature&TYPENAME=ns92528565%3AGRANICE_DZIELNIC&SRSNAME=EPSG%3A2178',
-            params: { 'TILED': true},
-            serverType: 'geoserver',
-            // Countries have transparency, so do not fade tiles:
-            transition: 0
-          })
-        })
+        layer
     ];
+
     var map = new ol.Map({
         layers: layers,
         target: 'map',
         view: new ol.View({
-            center: [2338092.978413948,6840252.587008831],
+            projection: 'EPSG:3857',
+            center: [2335727.634217173,6846435.393422468],
             zoom: 11
         })
     });
@@ -61,4 +78,4 @@
 </script>
 </body>
 
-</html>l>
+</html>
