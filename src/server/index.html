@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gis Project</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Warsaw map with districts info</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" href="https://openlayers.org/en/v4.6.5/css/ol.css" type="text/css">
+    <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
+    <script src="https://openlayers.org/en/v4.6.5/build/ol.js"></script>
+</head>
+
+
+<body>
+    <div id="container">
+        <div id="info_box">INFO asfasfdsfdsf</div>
+        <div id="map" class="map" style="width:100%; height:100%; z-index: 0"></div>
+    </div>
+
+
+    <script>
+
+     var my_style = new ol.style.Style({
+            fill: new ol.style.Fill({
+              color: 'rgba(255,0,255,0.3)'
+            }),
+            stroke: new ol.style.Stroke({
+              color: '#319FD3',
+              width: 1000
+            })
+          });
+
+
+        var layers = [
+            new ol.layer.Tile({
+                source: new ol.source.OSM()
+            }),
+           new ol.layer.Tile({
+              source: new ol.source.TileWMS({
+                url: 'http://wms.um.warszawa.pl/serwis?SERVICE=WMS&VERSION=1.0.0&REQUEST=GetFeature&TYPENAME=ns92528565%3AGRANICE_DZIELNIC&SRSNAME=EPSG%3A2178',
+                params: { 'TILED': true},
+                serverType: 'geoserver',
+                // Countries have transparency, so do not fade tiles:
+                transition: 0
+              })
+            })
+        ];
+
+
+        var map = new ol.Map({
+            layers: layers,
+            target: 'map',
+            view: new ol.View({
+                center: [2338092.978413948,6840252.587008831],
+                zoom: 11
+            })
+        });
+
+
+        map.on('click', function(event) {
+            var view = map.getView();
+
+            console.log("view.getCenter() = " + view.getCenter() + "\n");
+            console.log("view.getZoom() = " + view.getZoom() + "\n");
+            console.log(map.getView().getProjection().getCode())
+
+        });
+
+
+    </script>
+</body>
+</html>
