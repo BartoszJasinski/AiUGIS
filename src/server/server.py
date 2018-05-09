@@ -8,7 +8,7 @@ from http.server import BaseHTTPRequestHandler, http
 
 
 # Handler = http.server.SimpleHTTPRequestHandler
-PORT = 8888
+PORT = 8889
 DATA_LOCATION = "../../data"
 
 
@@ -16,14 +16,14 @@ class HttpRequestHandler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         data = open("Warsaw_districts_population.csv", "rb")
-        self.send_response(200)
-        self.end_headers()
-        self.wfile.write(data.read())
-
         # self.send_response(200)
         # self.end_headers()
-        # index = open("./index.html", 'rb')
-        # self.wfile.write(index.read())
+        # self.wfile.write(data.read())
+
+        self.send_response(200)
+        self.end_headers()
+        index = open("./index.html", 'rb')
+        self.wfile.write(index.read())
 
 
 with socketserver.TCPServer(('', PORT), HttpRequestHandler) as httpd:
