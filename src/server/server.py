@@ -6,7 +6,7 @@ import os
 from http.server import BaseHTTPRequestHandler, http
 
 
-PORT = 8888
+PORT = 8887
 DATA_LOCATION = "../../data"
 
 
@@ -17,7 +17,6 @@ class HttpRequestHandler(BaseHTTPRequestHandler):
         self.end_headers()
         index = open("./index.html", 'rb')
         self.wfile.write(index.read())
-
 
     def do_HEAD(self):
         data = open("Warsaw_districts_population.csv", "rb")
