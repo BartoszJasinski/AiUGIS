@@ -1,23 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Gis Project</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Warsaw Map</title>
+    <title>Warsaw map with districts info</title>
+    <link rel="stylesheet" type="text/css" href="/style.css" />
     <link rel="stylesheet" href="https://openlayers.org/en/v4.6.5/css/ol.css" type="text/css">
     <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
     <script src="https://openlayers.org/en/v4.6.5/build/ol.js"></script>
 
+    <style>
+        #info_box {
+          top: 100px;
+          right: 100px;
+          position: absolute;
+          z-index: 9999;
+          background-color: rgba(0, 0, 0, 0.5);
+          border-radius: 10px;
+          display: inline-block;
+          padding: 1em;
+        }
+    </style>
+
+
 </head>
+
+
 <body>
-<!--<div id="map" class="map"></div>-->
-<script>
+    <div id="container">
+        <div id="info_box">Ludność dzielnicy:</div>
+        <div id="map" class="map" style="width:100%; height:100%; z-index: 0"></div>
+    </div>
 
 
-    var polyCoords = [];
+    <script>
 
+      var polyCoords = [];
 
     var polygon = new ol.geom.Polygon([polyCoords]);
 
@@ -61,7 +82,8 @@
     });
 
 
-</script>
-</body>
 
+
+    </script>
+</body>
 </html>
