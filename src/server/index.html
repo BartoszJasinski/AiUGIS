@@ -38,15 +38,27 @@
 
     <script>
 
-      var polyCoords = [];
+    var polyCoords = [[2332719.132859044,6848145.170259357],[2332708.9946682877,6848137.938285708],[2332674.375131398,6848113.035559612],[2332649.4980193153,6848076.49942476],[2332621.9819674687,6848036.054660957],[2332532.4155872096,6847953.099891581]];
 
     var polygon = new ol.geom.Polygon([polyCoords]);
 
-    var point = new ol.geom.Point([2335727.634217173,6846435.393422468 ]);
+    var sitePoints = [];
+
+        var point = new ol.geom.Point(332719.132859044,6848145.170259357);
+        sitePoints.push(point);
+        point = new ol.geom.Point(2332708.9946682877,6848137.938285708);
+        sitePoints.push(point);
+        point = new ol.geom.Point(2332674.375131398,6848113.035559612);
+        sitePoints.push(point);
+        point = new ol.geom.Point(332719.132859044,6848145.170259357);
+        sitePoints.push(point);
+
+     var linearRing = new ol.geom.LinearRing(sitePoints);
+     var polygon = new ol.geom.Polygon([linearRing]);
 
 
     var feature = new ol.Feature({
-        geometry: point
+        geometry: polygon
     });
 
     var layer = new ol.layer.Vector({
