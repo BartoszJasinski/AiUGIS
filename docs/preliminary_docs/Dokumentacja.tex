@@ -93,7 +93,7 @@ Zapytania będą zwracać wcześniej wyliczone wartości przetrzymywane na serwe
 	Ze względu na awaryjność serwisu serwującego dane na temat podziału miasta Warszawa na dzielnice w formacie WFS oraz dużej niezmienności tych danych zdecydowaliśmy się na pobranie danych i korzystanie z nich w aplikacji w sposób statyczny. W celu przekonwertowania ich do odpowiedniego systemu EPSG napisaliśmy własny konwerter tych danych otrzymując plik z danymi gotowymi do użycia w aplikacji.
 
 	\subsection{Dane na temat ludności dzielnic Warszawy}
-
+	Dane na powyższy temat uzyskaliśmy ze strony \url{https://warszawa.stat.gov.pl/files/gfx/warszawa/pl/defaultstronaopisowa/1484/1/1/monitoring_ludnosc_201506_waw_t1.pdf} są one z dnia 1.01.2015.
 
 	\subsection{Wyliczenie procenta obszaru zielonego na zdjęciu satelitarnym}
 	Do detekcji terenów zielonych skorzystaliśmy z biblioteki OpenCV (https://opencv.org) na licencji BSD (open source). 
@@ -106,17 +106,26 @@ Zapytania będą zwracać wcześniej wyliczone wartości przetrzymywane na serwe
 	\item Wyliczany jest procent nie pustych pikseli na wynikowym obrazie w stosunku do ilości pikseli w obrazie początkowym i wyświetlany jest użytkownikowi wynik
 	\end{itemize}
 
-
+	Efekty działania algorytmu wyznaczania terenów zielonych widzimy na poniższym obrazku. Obszary które nie zostały uznane przez nasz algorytm jako zielone na wynikowym obrazku prezentują się jako czarne obszary.
+	\includegraphics[scale=0.3]{green_areas_algorithm} 
 
 	\subsection{Baza danych aplikacji}
-	Dane na temat ludnosci poszczególnych dzielnic Warszawy przechowywane są w pliku csv po stronie serwera.
+	Dane na temat ludnosci poszczególnych dzielnic Warszawy przechowywane są w pliku csv po stronie serwera. Dane na temat granic poszczególnych dzielnic były początkowo zapisane zgodnie z formatem EPSG:2178, przekonwertowaliśmy te dane na format EPSG:3857 ponieważ OpenLayers wymaga współrzędnych w takim formacie. Te dane trzymamy po stronie serwera i wysyłamy do klienta w celu ich narysowania.
 
 \section{Architektura aplikacji}
-
+	\subsection{Klient}
+	Klientem w naszej aplikacji jest przeglądarka której jest serwowana strona internetowa z mapą Warszawy z zaznaczonymi granicami dzielnic. Klient po otrzymaniu eventu kliknięcia na mapę, wysyła request do serwera który wyszukuje w którą klikneliśmy dzielnicę (na podstawie współrzędnych kliknięcia), po czym zwraca odpowiednie dane do klienta który wyświetla je dla użytkownika
 	\subsection{Serwer}
-
+	Serwer został napisany w Pythonie przy użyciu modułu \textbf{socketserver}, głównym zadaniem serwera jest serwowanie strony internetowej z mapą dla przeglądarki oraz zwracanie danych na temat dzielnic w odpowiedzi na requesty od klienta. Serwer podczas przetważania odpowiedzi sprawdza 
+	
 	\section{Utrzymanie aplikacji}
 		Utrzymanie aplikacji będzie opierało się głównie o odswieżanie danych na temat ludnosći dzielnic Warszawy oraz ewentualnym odswieżeniu danych o granicach administracyjnych dzielnic w razie ich zmiany, lub utworzenia nowych jednostek oraz uaktualniania zdjęć satelitarnych które służą do szacowania ilości terenów zielonych.
+		
+		
+		\section{Obsługa aplikacji}
+		Użytkowanie naszej aplikacji sporowadza się do odwiedzenia strony internetowej, na której wyświetlana jest mapa Warszawy z podziałem na dzielnice. Użytkownik ma możliwość kliknięcia na daną dzielnicę po czym zostaną mu wyświetlone dane na jej temat. Główny ekran aplikacji widoczny jest na poniższym obrazku
+		
+\includegraphics[scale=0.3]{app_main_screen} 
 
 
 \end{document}
