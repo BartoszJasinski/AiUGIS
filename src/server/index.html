@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gis Project</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Warsaw map with districts info</title>
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="stylesheet" href="https://openlayers.org/en/v4.6.5/css/ol.css" type="text/css">
+    <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
+    <script src="https://openlayers.org/en/v4.6.5/build/ol.js"></script>
+
+    <style>
+        #info_box {
+          top: 100px;
+          right: 100px;
+          position: absolute;
+          z-index: 9999;
+          background-color: rgba(0, 0, 0, 0.5);
+          border-radius: 10px;
+          display: inline-block;
+          padding: 1em;
+        }
+    </style>
+
+
+</head>
+
+
+<body>
+    <div id="container">
+        <div id="info_box">Ludność dzielnicy:</div>
+        <div id="map" class="map" style="width:100%; height:100%; z-index: 0"></div>
+    </div>
+
+
+    <script>
+
+    var polyCoords = [[2332719.132859044,6848145.170259357],[2332708.9946682877,6848137.938285708],[2332674.375131398,6848113.035559612],[2332649.4980193153,6848076.49942476],[2332621.9819674687,6848036.054660957],[2332532.4155872096,6847953.099891581]];
+
+    var polygon = new ol.geom.Polygon([polyCoords]);
+
+    var sitePoints = [];
+
+        var point = new ol.geom.Point(332719.132859044,6848145.170259357);
+        sitePoints.push(point);
+        point = new ol.geom.Point(2332708.9946682877,6848137.938285708);
+        sitePoints.push(point);
+        point = new ol.geom.Point(2332674.375131398,6848113.035559612);
+        sitePoints.push(point);
+        point = new ol.geom.Point(332719.132859044,6848145.170259357);
+        sitePoints.push(point);
+
+     var linearRing = new ol.geom.LinearRing(sitePoints);
+     var polygon = new ol.geom.Polygon([linearRing]);
+
+
+    var feature = new ol.Feature({
+        geometry: polygon
+    });
+
+    var layer = new ol.layer.Vector({
+        source: new ol.source.Vector({
+            features: [feature]
+        })
+    });
+
+
+    var layers = [
+        new ol.layer.Tile({
+            source: new ol.source.OSM()
+        }),
+        layer
+    ];
+
+    var map = new ol.Map({
+        layers: layers,
+        target: 'map',
+        view: new ol.View({
+            projection: 'EPSG:3857',
+            center: [2335727.634217173,6846435.393422468],
+            zoom: 11
+        })
+    });
+
+
+    map.on('click', function(event) {
+        var view = map.getView();
+
+        console.log("view.getCenter() = " + view.getCenter() + "\n");
+        console.log("view.getZoom() = " + view.getZoom() + "\n");
+    });
+
+
+
+
+    </script>
+</body>
+</html>
