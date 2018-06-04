@@ -1,62 +1,6 @@
 #!/usr/bin/env python3
 
-# import socketserver
-# import os
-#
-# from http.server import BaseHTTPRequestHandler, http
-#
-#
-# PORT = 8887
-# DATA_LOCATION = "../../data"
-#
-#
-# class HttpRequestHandler(BaseHTTPRequestHandler):
-#
-#     def do_GET(self):
-#         self.send_response(200)
-#         self.end_headers()
-#         index = open("./index.html", 'rb')
-#         self.wfile.write(index.read())
-#
-#     def do_HEAD(self):
-#         data = open("Warsaw_districts_population.csv", "rb")
-#         self.send_response(200)
-#         self.end_headers()
-#         self.wfile.write(data.read())
-#
-#
-# with socketserver.TCPServer(('', PORT), HttpRequestHandler) as httpd:
-#     print("serving at port", PORT)
-#     # os.chdir(DATA_LOCATION)
-#     httpd.serve_forever()
-
-
-# import os
-# from xml.dom import minidom
-#
-# districts_borders_data_path = "../../data"
-# os.chdir(districts_borders_data_path)
-# districts_borders_data_file_name = "districts_borders_converted_data.xml"
-#
-# parsed_districts_borders_data = minidom.parse(districts_borders_data_file_name)
-# districts_coordinates = parsed_districts_borders_data.getElementsByTagName('gml:coordinates')
-#
-# for record in districts_coordinates:
-#     print(record.firstChild.nodeValue.split(" "), '\n\n\n\n\n')
-#     district_border_coordinates_list = record.firstChild.nodeValue.split(" ")
-#     latitude_border_coordinates_vector = []
-#     longitude_border_coordinates_vector = []
-#     for district_border_coordinate_string in district_border_coordinates_list:
-#         district_border_coordinate = district_border_coordinate_string.split(",")
-#         latitude_border_coordinates_vector.append(float(district_border_coordinate[1]))
-#         longitude_border_coordinates_vector.append(float(district_border_coordinate[0]))
-#
-#     print(latitude_border_coordinates_vector)
-#     print("\n")
-#     print(longitude_border_coordinates_vector)
-#     print("\n")
-
-
+import csv
 import os
 from xml.dom import minidom
 
@@ -83,9 +27,12 @@ class ClickHandler(tornado.web.RequestHandler):
         coordinates = {'latitude': float(str(click_coordinates).split(",")[1]),
                        'longitude': float(str(click_coordinates).split(",")[0])}
         district_name = self.getDistrictByCoordinates(coordinates)
-        self.write(str(district_name))
+        self.write(district_name)
+        # TODO district_data = self.getDataForDistrict(district_name)
+        # TODO self.write(district_data)
 
-    def getDistrictByCoordinates(self, coordinates):
+    @staticmethod
+    def getDistrictByCoordinates(coordinates):
         current_working_directory = os.getcwd()
         try:
             districts_borders_data_path = "../../data"
@@ -115,17 +62,22 @@ class ClickHandler(tornado.web.RequestHandler):
                         .firstChild.nodeValue  # District name
                 district_counter += 1
 
-                # print(latitude_border_coordinates_vector)
-                # print("\n")
-                # print(longitude_border_coordinates_vector)
-                # print("\n")
-
             return 'Unknown_District'
         finally:
             os.chdir(current_working_directory)
 
-    def test(self):
-        pass
+    @staticmethod
+    def getDataForDistrict(district_name):
+        # dirname = os.path.dirname(__file__)
+        # filename = os.path.join(dirname, '..', 'data', '')
+        os.chdir("../../data/")
+        print(os.getcwd() + "\n")
+        with open('Warsaw_districts_data.csv', 'r') as csv_file:
+            csv_districts_data = csv.reader(csv_file, delimiter=',')
+            for record in csv_districts_data:
+                print(record["ID_Key"])
+                # if record["District_Name"] == district_name:
+                #     return record['District_Name']
 
 
 def main():
