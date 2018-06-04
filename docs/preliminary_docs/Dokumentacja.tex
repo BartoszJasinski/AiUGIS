@@ -83,12 +83,37 @@ Zapytania będą zwracać wcześniej wyliczone wartości przetrzymywane na serwe
 	
 	\begin{itemize}
 	\item Zdjęcia satelitarne z Google Maps API: https://maps.googleapis.com
-	\item Dane na temat podziału miasta Warszawa na dzielnice pozyskane ze strony http://www.gugik.gov.pl, pełny link do danych: http://www.gugik.gov.pl/geodezja-i-kartografia/pzgik/dane-bez-oplat/dane-z-panstwowego-rejestru-granic-i-powierzchni-jednostek-podzialow-terytorialnych-kraju-prg
+	\item Dane na temat podziału miasta Warszawa na dzielnice pozyskane z serwisu WFS http://wfs.um.warszawa.pl/serwis
 	\item Dane na temat ludności dzielnic Warszawy, stan na 2017 rok z portalu http://stat.gov.pl, pełny link do danych: http://stat.gov.pl/obszary-tematyczne/ludnosc/ludnosc/powierzchnia-i-ludnosc-w-przekroju-terytorialnym-w-2017-r-,7,14.html
 	\end{itemize}
 
+	\section{Przetworzenie danych w aplikacji}
+
+	\subsection{Dane na temat granic dzielnic Warszawy}
+	Ze względu na awaryjność serwisu serwującego dane na temat podziału miasta Warszawa na dzielnice w formacie WFS oraz dużej niezmienności tych danych zdecydowaliśmy się na pobranie danych i korzystanie z nich w aplikacji w sposób statyczny. W celu przekonwertowania ich do odpowiedniego systemu EPSG napisaliśmy własny konwerter tych danych otrzymując plik z danymi gotowymi do użycia w aplikacji.
+
+	\subsection{Dane na temat ludności dzielnic Warszawy}
+
+
+	\subsection{Wyliczenie procenta obszaru zielonego na zdjęciu satelitarnym}
+	Do detekcji terenów zielonych skorzystaliśmy z biblioteki OpenCV (https://opencv.org) na licencji BSD (open source). 
+
+	Algorytm działa w następujący sposób:
+	\begin{itemize}
+	\item Wybrany obraz jest wpierw ładowany w programie i konwertowany z RGB do HSV
+	\item Tworzona jest maska przepuszczająca tylko kolory z pewnego wybranego zakresu (w tej aplikacji wszystkie odcienie koloru zielonego), oraz ustawiana jest pewna wrażliwość maski (margines błędu)
+	\item Obraz pierwotny poddany jest maskowaniu (funkcja biblioteki OpenCV) i powstaje obraz wynikowy, na którym znajdują się jedynie piksele o kolorach dopuszczonych przez maskę
+	\item Wyliczany jest procent nie pustych pikseli na wynikowym obrazie w stosunku do ilości pikseli w obrazie początkowym i wyświetlany jest użytkownikowi wynik
+	\end{itemize}
+
+
+
 	\subsection{Baza danych aplikacji}
-	Dane na temat ludnosci poszczególnych dzielnic Warszawy przechowywane są w pliku csv po stronie serwera. Podział miasta na dzielnice wczytywany jest z pliku Shapefile.
+	Dane na temat ludnosci poszczególnych dzielnic Warszawy przechowywane są w pliku csv po stronie serwera.
+
+\section{Architektura aplikacji}
+
+	\subsection{Serwer}
 
 	\section{Utrzymanie aplikacji}
 		Utrzymanie aplikacji będzie opierało się głównie o odswieżanie danych na temat ludnosći dzielnic Warszawy oraz ewentualnym odswieżeniu danych o granicach administracyjnych dzielnic w razie ich zmiany, lub utworzenia nowych jednostek oraz uaktualniania zdjęć satelitarnych które służą do szacowania ilości terenów zielonych.
