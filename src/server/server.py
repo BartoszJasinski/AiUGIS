@@ -5,8 +5,7 @@ import os
 
 from http.server import BaseHTTPRequestHandler, http
 
-
-PORT = 8887
+PORT = 8888
 DATA_LOCATION = "../../data"
 
 
