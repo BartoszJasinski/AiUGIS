@@ -1,4 +1,4 @@
-ID_Key,District_Name,Population,Area(ha),GreenArea(Percent)
+ID_Key,District_Name,Population,Area,GreenArea
 1,Bemowo,120449,2495,21.14
 2,Białołęka,116127,7304,43.22
 3,Bielany,131957,3234,28.54

@@ -22,6 +22,7 @@
           border-radius: 10px;
           display: inline-block;
           padding: 1em;
+            color: darkorange;
         }
     </style>
 
@@ -31,7 +32,7 @@
 
 <body>
     <div id="container">
-        <div id="info_box">Ludność dzielnicy:</div>
+        <div id="info_box"></div>
         <div id="map" class="map" style="width:100%; height:100%; z-index: 0"></div>
     </div>
 
@@ -352,15 +353,13 @@
         xmlHttp.send(null);
     }
 
-    function cal(response)
-    {
-        console.info(response)
-    }
+
     map.on('click', function(evt){
         // console.info(evt.pixel);
         console.info(evt.coordinate);
         $.get("/" + String(evt.coordinate), function(data, status){
-        alert(String(data)  );
+        document.getElementById("info_box").innerHTML = "District name = " + data["District_Name"] + "<br>Population = "
+            + data["Population"] + "<br>Area(ha) = " + data["Area"] + "<br>GreenArea(Percent) = " + data["GreenArea"]
     });
         // httpGet('localhost:8888/' + String(evt.coordinate))
     });
