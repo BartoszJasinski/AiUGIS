@@ -299,9 +299,6 @@
           stroke: new ol.style.Stroke({
             color: 'blue',
             width: 3
-          }),
-          fill: new ol.style.Fill({
-            color: 'rgba(0, 0, 255, 0.1)'
           })
         })
       ];
@@ -316,10 +313,10 @@
 		style: styles
     });
     var layers = [
-        new ol.layer.Tile({
-            source: new ol.source.OSM()
-        }),
+        new ol.layer.Tile({ source: new ol.source.TileImage({ url: 'http://khm{0-3}.googleapis.com/kh?v=742&hl=pl&&x={x}&y={y}&z={z}'}) }),
+
         layer
+
     ];
     var map = new ol.Map({
         layers: layers,
@@ -327,7 +324,7 @@
         view: new ol.View({
             projection: 'EPSG:3857',
             center: [2335727.634217173,6846435.393422468],
-            zoom: 11
+            zoom: 13
         })
     });
     // map.on('click', function(event) {
