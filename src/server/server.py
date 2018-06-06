@@ -27,9 +27,9 @@ class ClickHandler(tornado.web.RequestHandler):
         coordinates = {'latitude': float(str(click_coordinates).split(",")[1]),
                        'longitude': float(str(click_coordinates).split(",")[0])}
         district_name = self.getDistrictByCoordinates(coordinates)
-        self.write(district_name)
-        # TODO district_data = self.getDataForDistrict(district_name)
-        # TODO self.write(district_data)
+        # self.write(district_name)
+        district_data = self.getDataForDistrict(district_name)
+        self.write(district_data)
 
     @staticmethod
     def getDistrictByCoordinates(coordinates):
@@ -70,14 +70,19 @@ class ClickHandler(tornado.web.RequestHandler):
     def getDataForDistrict(district_name):
         # dirname = os.path.dirname(__file__)
         # filename = os.path.join(dirname, '..', 'data', '')
-        os.chdir("../../data/")
-        print(os.getcwd() + "\n")
-        with open('Warsaw_districts_data.csv', 'r') as csv_file:
-            csv_districts_data = csv.reader(csv_file, delimiter=',')
-            for record in csv_districts_data:
-                print(record["ID_Key"])
-                # if record["District_Name"] == district_name:
-                #     return record['District_Name']
+        current_working_directory = os.getcwd()
+        try:
+            os.chdir("../../data/")
+            with open('Warsaw_districts_data.csv', 'r') as csv_file:
+                csv_districts_data = csv.DictReader(csv_file, delimiter=',')
+                for record in csv_districts_data:
+                    # print(record["ID_Key"])
+                    if record['District_Name'] == district_name:
+                        return record
+                return "District data not found"
+
+        finally:
+            os.chdir(current_working_directory)
 
 
 def main():
