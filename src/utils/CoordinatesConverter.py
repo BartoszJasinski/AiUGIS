@@ -1,5 +1,5 @@
 from pyproj import Proj, transform
-import os
+import osfg
 from xml.dom import minidom
 
 
