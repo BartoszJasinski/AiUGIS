@@ -74,7 +74,7 @@ Zapytania będą zwracać wcześniej wyliczone wartości przetrzymywane na serwe
 
 
 	\subsection{Technologia}
-		Projekt wykonany w technologii: \textbf{Python} po stronie serwera najprawdopodobniej z użyciem frameworku \textbf{Tornado}, razem z bibliotekami pomocnymi w obsłudze plików \textbf{csv}, \textbf{JavaScrip} oraz \textbf{HTML} po stronie przeglądarki.  
+		Projekt wykonany w technologii: \textbf{Python} po stronie serwera najprawdopodobniej z użyciem frameworku \textbf{Tornado}, razem z bibliotekami pomocnymi w obsłudze plików \textbf{csv}, \textbf{JavaScript} oraz \textbf{HTML} po stronie przeglądarki.  
 
 	
 	\section{Dane aplikacji}
@@ -90,7 +90,7 @@ Zapytania będą zwracać wcześniej wyliczone wartości przetrzymywane na serwe
 	\section{Przetworzenie danych w aplikacji}
 
 	\subsection{Dane na temat granic dzielnic Warszawy}
-	Ze względu na awaryjność serwisu serwującego dane na temat podziału miasta Warszawa na dzielnice w formacie WFS oraz dużej niezmienności tych danych zdecydowaliśmy się na pobranie danych i korzystanie z nich w aplikacji w sposób statyczny. W celu przekonwertowania ich do odpowiedniego systemu EPSG napisaliśmy własny konwerter tych danych otrzymując plik z danymi gotowymi do użycia w aplikacji.
+	Ze względu na awaryjność serwisu serwującego dane na temat podziału miasta Warszawa na dzielnice w formacie WFS oraz niedużej zmienności tych danych zdecydowaliśmy się na pobranie danych i korzystanie z nich w aplikacji w sposób statyczny. W celu przekonwertowania ich do odpowiedniego systemu EPSG napisaliśmy własny konwerter tych danych otrzymując plik z danymi gotowymi do użycia w aplikacji.
 
 	\subsection{Dane na temat ludności dzielnic Warszawy}
 	Dane na powyższy temat uzyskaliśmy ze strony \url{https://warszawa.stat.gov.pl/files/gfx/warszawa/pl/defaultstronaopisowa/1484/1/1/monitoring_ludnosc_201506_waw_t1.pdf} są one z dnia 1.01.2015.
@@ -125,7 +125,11 @@ Zapytania będą zwracać wcześniej wyliczone wartości przetrzymywane na serwe
 		\section{Obsługa aplikacji}
 		Użytkowanie naszej aplikacji sporowadza się do odwiedzenia strony internetowej, na której wyświetlana jest mapa Warszawy z podziałem na dzielnice. Użytkownik ma możliwość kliknięcia na daną dzielnicę po czym zostaną mu wyświetlone dane na jej temat. Główny ekran aplikacji widoczny jest na poniższym obrazku
 		
-\includegraphics[scale=0.3]{app_main_screen} 
+\includegraphics[scale=0.4]{app_main_screen} 
+
+Po kliknięciu w dzielnicę pojawia się okno z danymi:
+
+\includegraphics[scale=0.4]{app_working}
 
 
 \end{document}
